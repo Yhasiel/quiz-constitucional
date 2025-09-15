@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz – Derecho Constitucional Peruano</title>
+  <style>
+    :root{--ok:#0ea35a;--bad:#d03a3a;--muted:#6b7280;--ink:#111827;--bg:#f7f7fb;--card:#fff}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:1024px;margin:32px auto;padding:0 16px}
+    h1{margin:0 0 8px;font-size:clamp(22px,4vw,32px)}
+    .sub{color:var(--muted);margin:0 0 16px}
+    .hint{background:#fff6d1;border:1px dashed #f59e0b;padding:10px 12px;border-radius:10px;color:#7c5800;margin:14px 0}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+    button,select{appearance:none;border:1px solid #d1d5db;background:#fff;color:#111827;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;transition:.15s}
+    button.primary{background:#111827;color:#fff;border-color:#111827}
+    .score{margin-left:auto;font-weight:700}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:16px 16px 10px;margin:14px 0}
+    .qid{font-weight:700;color:#374151;margin-bottom:4px}
+    .qtxt{font-size:18px;margin:0 0 10px}
+    .options{display:grid;gap:6px}
+    .opt{display:flex;gap:10px;align-items:flex-start;border:1px solid #e5e7eb;border-radius:10px;padding:8px 10px}
+    .opt.correct{background:#ecfdf5;border-color:#a7f3d0}
+    .opt.incorrect{background:#fef2f2;border-color:#fecaca}
+    .explain{margin-top:8px;border-left:4px solid var(--bad);padding:8px 10px;background:#fff;border-radius:8px}
+    .explain.hidden{display:none}
+    .tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:8px}
+    .tag.ok{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+    .tag.bad{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca}
+    .hidden{display:none}
+    footer{color:#9ca3af;margin:22px 0 40px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Simulacro – Derecho Constitucional Peruano</h1>
+    <p class="sub">20 ítems. Al calificar podrás filtrar correctas/incorrectas y ver explicaciones.</p>
+
+    <div class="hint">
+      <strong>Pistas:</strong> Supremacía ≠ “cualquier ley”; Materia/Contenido: declarativas, iusfundamentales, orgánicas;
+      Eficacia: operativas vs programáticas; Principios: unidad, concordancia práctica, eficacia integradora, corrección funcional, fuerza normativa, razonabilidad.
+    </div>
+
+    <div class="toolbar">
+      <button id="grade" class="primary">Calificar</button>
+      <button id="reset">Reiniciar</button>
+      <select id="filterSel">
+        <option value="all">Ver: todas</option>
+        <option value="onlyOk">Ver: solo correctas</option>
+        <option value="onlyBad">Ver: solo incorrectas</option>
+        <option value="onlyBlank">Ver: solo en blanco</option>
+      </select>
+      <div id="score" class="score">Puntaje: 0/20</div>
+    </div>
+
+    <div id="quiz"></div>
+
+    <footer>Hecho con 💚 para que arrases tu evaluación.</footer>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
